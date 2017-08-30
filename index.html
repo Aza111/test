@@ -1,24 +1,45 @@
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
-
-<!-- VK Widget -->
-<div id="vk_playlist_-2000646569_646569"></div>
-<script type="text/javascript">
-VK.Widgets.Playlist('vk_playlist_-2000646569_646569', -2000646569, 646569, 'ae82627d6c8bb4500d');
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBKJNyvDpOekmpSUcOaw0A2P1gM9MrtCfo",
+    authDomain: "chatroom-902f3.firebaseapp.com",
+    databaseURL: "https://chatroom-902f3.firebaseio.com",
+    projectId: "chatroom-902f3",
+    storageBucket: "chatroom-902f3.appspot.com",
+    messagingSenderId: "367040688592"
+  };
+  firebase.initializeApp(config);
 </script>
-
-
-
-<!-- Put this script tag to the <head> of your page -->
-<script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
-
-<script type="text/javascript">
-  VK.init({apiId: 6152105});
-</script>
-
-<!-- Put this div tag to the place, where Auth block will be -->
-<div id="vk_auth"></div>
-<script type="text/javascript">
-VK.Widgets.Auth("vk_auth", {authUrl: '/dev/Login'});
-</script>
-
-<a href="https://oauth.vk.com/authorize?client_id=6160732&display=page&redirect_uri=&scope=friends,messages&response_type=token&v=5.52">TOKEN</a>
+    
+    <script src="app.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ChatController">
+    <br>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Web Based Firebase Chat Application</div>
+            <div class="panel-body">
+                <div class="message" ng-repeat="m in messages">
+                    <h3>{{m.name}}</h3>
+                    <p>{{m.message}} - {{m.date | date:'medium'}}</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Message here..." ng-model="messageText">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="send()">Send</button>
+            </div>
+        </div>
+    </div>
+   <iframe src="https://discordapp.com/widget?id=352409979908784131&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+<img id='myimg'>
+</body>
+</html>
